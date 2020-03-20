@@ -17,4 +17,4 @@ parameters:
   SessionTimeoutSeconds: "28800"
   SynapseOauthClientId: "100050"
   SynapseOauthClientSecret: !ssm /synapse-login/SynapseOauthClientSecret
-  TeamToRoleArnMap: '[{"teamId":"273957","roleArn":"arn:aws:iam::237179673806:role/ServiceCatalogEndusers"}]'
+  TeamToRoleArnMap: '[{"teamId":"3407239","roleArn":"arn:aws:iam::237179673806:role/ServiceCatalogEndusers"}]'
