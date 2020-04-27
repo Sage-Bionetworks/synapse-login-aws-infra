@@ -53,6 +53,14 @@ Resources:
               - !Ref DNSDomainName
           ValidationDomain: !Ref DNSDomainName
       ValidationMethod: DNS
+  SSLCertificateSageIT:
+    Type: AWS::CertificateManager::Certificate
+    Properties:
+      DomainName: '*.sageit.org'
+      DomainValidationOptions:
+        - DomainName: '*.sageit.org'
+          ValidationDomain: 'sageit.org'
+      ValidationMethod: DNS
 Outputs:
   BeanstalkAppName:
     Value: !Ref BeanstalkApplication
@@ -70,3 +78,7 @@ Outputs:
     Value: !Ref SSLCertificate
     Export:
       Name: !Sub '${AWS::Region}-${AWS::StackName}-SSLCertificate'
+  SSLCertificateSageIT:
+    Value: !Ref SSLCertificateSageIT
+    Export:
+      Name: !Sub '${AWS::Region}-${AWS::StackName}-SSLCertificateSageIT'
