@@ -1,5 +1,5 @@
-template_path: shared.yaml
-stack_name: synapselogin-shared
+template_path: SageItCert.yaml
+stack_name: synapse-login-scipooldev-sageit-cert
 stack_tags:
   Department: "Platform"
   Project: "Infrastructure"
