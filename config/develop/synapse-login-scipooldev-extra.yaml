@@ -1,7 +1,7 @@
 template_path: app-extra.yaml
 stack_name: synapse-login-scipooldev-extra
 dependencies:
-  - develop/shared.yaml
+  - develop/synapse-login-scipooldev-sageit-cert.yaml
 stack_tags:
   Department: "Platform"
   Project: "Infrastructure"
