@@ -1,7 +1,7 @@
 template_path: app-extra.yaml
 stack_name: synapse-login-bmgfki-extra
 dependencies:
-  - bmgfki/synapse-login-bmgfki-sageit-cert.yaml
+  - bmgfki/synapse-login-bmgfki.yaml
 stack_tags:
   Department: "Platform"
   Project: "Infrastructure"
