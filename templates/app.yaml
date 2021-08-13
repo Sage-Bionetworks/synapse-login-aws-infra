@@ -460,7 +460,7 @@ Resources:
               - "sts:AssumeRole"
       Path: "/"
       ManagedPolicyArns:
-        - arn:aws:iam::aws:policy/AWSElasticBeanstalkFullAccess
+        - arn:aws:iam::aws:policy/AdministratorAccess-AWSElasticBeanstalk
 Outputs:
   AppPublicEndpoint:
     Value: !Join
