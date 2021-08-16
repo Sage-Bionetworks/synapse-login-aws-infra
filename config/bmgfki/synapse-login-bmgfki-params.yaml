@@ -24,10 +24,10 @@ sceptre_user_data:
       Value: https://synapse-login-bmgfki.sagebio-bmgfki.org/synapse,https://connect.sagebio-bmgfki.org/oauth2/idpresponse
     # Synapse team mapping
     # 3407239 scipool-admin
-    # 3412678 ampad-workinggroup
+    # 3432633 BMGFKI_ServiceCatalogUsers
     - Name: TeamToRoleArnMap
       Value: >-
         '[
           {"teamId":"3407239","roleArn":"arn:aws:iam::423819316185:role/ServiceCatalogEndusers"},
-          {"teamId":"3412678","roleArn":"arn:aws:iam::423819316185:role/ServiceCatalogExternalEndusers"}
+          {"teamId":"3432633","roleArn":"arn:aws:iam::423819316185:role/ServiceCatalogExternalEndusers"}
         ]'
