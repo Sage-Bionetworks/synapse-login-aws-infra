@@ -461,6 +461,7 @@ Resources:
       Path: "/"
       ManagedPolicyArns:
         - arn:aws:iam::aws:policy/AdministratorAccess-AWSElasticBeanstalk
+        - arn:aws:iam::aws:policy/AmazonS3FullAccess
 Outputs:
   AppPublicEndpoint:
     Value: !Join
