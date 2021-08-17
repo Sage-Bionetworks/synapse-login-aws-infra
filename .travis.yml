@@ -42,3 +42,10 @@ jobs:
         - echo -e "[default]\nregion=us-east-1\nsource_profile=default\nrole_arn=$AwsCfServiceRoleArn_strides" > ~/.aws/config
         - echo -e "[default]\nregion=us-east-1\naws_access_key_id=$AwsTravisAccessKey_strides\naws_secret_access_key=$AwsTravisSecretAccessKey_strides" > ~/.aws/credentials
         - travis-wait-improved --timeout 30m sceptre launch --yes strides
+    - stage: deploy-prod
+      name: "org-sagebase-bmgfki"
+      script:
+        - mkdir -p ~/.aws
+        - echo -e "[default]\nregion=us-east-1\nsource_profile=default\nrole_arn=$AwsCfServiceRoleArn_bmgfki" > ~/.aws/config
+        - echo -e "[default]\nregion=us-east-1\naws_access_key_id=$AwsTravisAccessKey_bmgfki\naws_secret_access_key=$AwsTravisSecretAccessKey_bmgfki" > ~/.aws/credentials
+        - travis-wait-improved --timeout 30m sceptre launch --yes bmgfki
