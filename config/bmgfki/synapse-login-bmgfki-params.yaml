@@ -28,6 +28,6 @@ sceptre_user_data:
     - Name: TeamToRoleArnMap
       Value: >-
         '[
-          {"teamId":"3407239","roleArn":"arn:aws:iam::423819316185:role/ServiceCatalogEndusers"},
-          {"teamId":"3432633","roleArn":"arn:aws:iam::423819316185:role/ServiceCatalogExternalEndusers"}
+          {"teamId":"3407239","roleArn":"arn:aws:iam::464102568320:role/ServiceCatalogEndusers"},
+          {"teamId":"3432633","roleArn":"arn:aws:iam::464102568320:role/ServiceCatalogExternalEndusers"}
         ]'
