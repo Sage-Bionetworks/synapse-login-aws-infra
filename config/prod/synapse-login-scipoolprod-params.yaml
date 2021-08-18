@@ -28,7 +28,6 @@ sceptre_user_data:
     # 3409010 scipoolprod-internal
     # 3412679 ampad-portalusers
     # 3409011 scipoolprod-external
-    # 3425028 2021 Hack for RARE Participants
     - Name: TeamToRoleArnMap
       Value: >-
         '[
@@ -36,6 +35,5 @@ sceptre_user_data:
           {"teamId":"273957","roleArn":"arn:aws:iam::237179673806:role/ServiceCatalogEndusers"},
           {"teamId":"3409010","roleArn":"arn:aws:iam::237179673806:role/ServiceCatalogEndusers"},
           {"teamId":"3412679","roleArn":"arn:aws:iam::237179673806:role/ServiceCatalogExternalEndusers"},
-          {"teamId":"3409011","roleArn":"arn:aws:iam::237179673806:role/ServiceCatalogExternalEndusers"},
-          {"teamId":"3425028","roleArn":"arn:aws:iam::237179673806:role/ServiceCatalogExternalEndusers"}
+          {"teamId":"3409011","roleArn":"arn:aws:iam::237179673806:role/ServiceCatalogExternalEndusers"}
         ]'
