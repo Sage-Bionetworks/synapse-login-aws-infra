@@ -29,5 +29,6 @@ sceptre_user_data:
       Value: >-
         '[
           {"teamId":"3407239","roleArn":"arn:aws:iam::423819316185:role/ServiceCatalogEndusers"},
+          {"teamId":"3438230","roleArn":"arn:aws:iam::423819316185:role/ServiceCatalogEndusers"},
           {"teamId":"3412678","roleArn":"arn:aws:iam::423819316185:role/ServiceCatalogExternalEndusers"}
         ]'
