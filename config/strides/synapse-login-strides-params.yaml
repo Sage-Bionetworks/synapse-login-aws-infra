@@ -24,6 +24,7 @@ sceptre_user_data:
       Value: https://synapse-login-strides.sagebio-strides.org/synapse,https://connect.sagebio-strides.org/oauth2/idpresponse
     # Synapse team mapping
     # 3407239 scipool-admin
+    # 3438230 AMPAD_WG_ServiceCatalogSageInternalUsers
     # 3412678 ampad-workinggroup
     - Name: TeamToRoleArnMap
       Value: >-
