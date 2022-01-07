@@ -4,6 +4,8 @@ stack_tags:
   Department: "Platform"
   Project: "Infrastructure"
   OwnerEmail: "it@sagebase.org"
+dependencies:
+  - develop/synapse-login-scipooldev-sageit-cert.yaml
 parameters:
   DNSDomainName: "scipooldev.org"
   BeanstalkAppName: "synapse-login"
