@@ -1,7 +1,7 @@
 template_path: app-extra.yaml
 stack_name: synapse-login-strides-extra
 dependencies:
-  - strides/synapse-login-strides-sageit-cert.yaml
+  - strides/synapse-login-strides.yaml
 stack_tags:
   Department: "Platform"
   Project: "Infrastructure"

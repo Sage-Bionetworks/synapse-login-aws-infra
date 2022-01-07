@@ -4,6 +4,8 @@ stack_tags:
   Department: "Platform"
   Project: "Infrastructure"
   OwnerEmail: "it@sagebase.org"
+dependencies:
+  - strides/synapse-login-strides-sageit-cert.yaml
 parameters:
   DNSDomainName: "sagebio-strides.org"
   BeanstalkAppName: "synapse-login"
