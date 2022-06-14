@@ -1,4 +1,5 @@
 template:
+  type: "http"
   path: "https://raw.githubusercontent.com/Sage-Bionetworks/aws-infra/v0.4.3/templates/SystemsManager/ssm-parameters.j2"
 stack_name: "synapse-login-scipooldev-params"
 stack_tags:
