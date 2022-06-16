@@ -4,10 +4,9 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
-pre-commit = "~=2.7.1"
-awscli = "~=1.22.35"
-sceptre = "~=2.7.1"
-sceptre-ssm-resolver = "~=1.2.1"
+pre-commit = "~=2.19.0"
+awscli = "~=1.25.8"
+sceptre-ssm-resolver = "~=1.2.2"
 travis-wait-improved = "~=1.0.0"
 
 [packages]
