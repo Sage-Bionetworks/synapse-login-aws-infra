@@ -44,7 +44,7 @@ jobs:
     - stage: deploy-strides
       if: (NOT type IN (pull_request)) AND (branch = prod)
       script:
-        - AWS_PROFILE=strides AWS_DEFAULT_REGION=${AWS_REGION} travis_wait 30 sceptre launch --yes strdies
+        - AWS_PROFILE=strides AWS_DEFAULT_REGION=${AWS_REGION} travis_wait 30 sceptre launch --yes strides
     - stage: deploy-bmgfki
       if: (NOT type IN (pull_request)) AND (branch = prod)
       script:
