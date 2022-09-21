@@ -1,6 +1,13 @@
 Description: Resources for application
 AWSTemplateFormatVersion: 2010-09-09
 Parameters:
+  ManagedPlatformUpdateLevel:
+    Type: String
+    Description: The highest level of update to apply with managed platform updates
+    Default: "patch"
+    AllowedValues:
+      - minor
+      - patch
   AppDeployBucketName:
     Type: String
   AppHealthcheckPath:
@@ -111,6 +118,9 @@ Resources:
       SolutionStackName: !Ref SolutionStackName
       OptionSettings:
         # EB environment options
+        - Namespace: 'aws:elasticbeanstalk:managedactions:platformupdate'
+          OptionName: UpdateLevel
+          Value: !Ref ManagedPlatformUpdateLevel
         - Namespace: 'aws:autoscaling:asg'
           OptionName: MaxSize
           Value: !Ref AutoScalingMaxSize
