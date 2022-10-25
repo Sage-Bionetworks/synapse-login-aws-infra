@@ -26,7 +26,7 @@ Parameters:
     MaxValue: 2
   BeanstalkHealthReportingSystem:
     Type: String
-    Default: basic
+    Default: enhanced
     AllowedValues:
       - basic
       - enhanced
@@ -118,6 +118,16 @@ Resources:
       SolutionStackName: !Ref SolutionStackName
       OptionSettings:
         # EB environment options
+        - Namespace: 'aws:elasticbeanstalk:managedactions'
+          OptionName: ManagedActionsEnabled
+          Value: 'true'
+        - Namespace: 'aws:elasticbeanstalk:managedactions'
+          OptionName: PreferredStartTime
+          Value: 'Tue:09:00'
+        - Namespace: 'aws:elasticbeanstalk:managedactions'
+          OptionName: ServiceRoleForManagedUpdates
+          Value: !ImportValue
+                 'Fn::Sub': '${AWS::Region}-${AWS::StackName}-base-BeanstalkServiceRole'
         - Namespace: 'aws:elasticbeanstalk:managedactions:platformupdate'
           OptionName: UpdateLevel
           Value: !Ref ManagedPlatformUpdateLevel
