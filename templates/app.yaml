@@ -88,6 +88,10 @@ Parameters:
     Description: 'The SSM parameter store prefix for the application variablex'
     ConstraintDescription: 'A prefix to the params (i.e. /service-catalog/)'
     Type: String
+  VpnCidr:
+    Type: String
+    Description: The VPN subnet in CIDR format
+    Default: '10.50.0.0/16'
 Resources:
   LoadBalancerAccessLogsBucket:
     Type: 'AWS::S3::Bucket'
@@ -149,6 +153,9 @@ Resources:
         - Namespace: 'aws:autoscaling:launchconfiguration'
           OptionName: EC2KeyName
           Value: !Ref EC2KeyName
+        - Namespace: 'aws:autoscaling:launchconfiguration'
+          OptionName: SSHSourceRestriction
+          Value: !Sub 'tcp, 22, 22, ${VpnCidr}'
         - Namespace: 'aws:autoscaling:updatepolicy:rollingupdate'
           OptionName: RollingUpdateEnabled
           Value: 'true'
