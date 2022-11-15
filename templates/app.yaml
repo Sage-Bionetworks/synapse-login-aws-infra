@@ -478,7 +478,6 @@ Resources:
             Effect: "Allow"
             Principal:
               AWS:
-                - !ImportValue {'Fn::Sub': '${AWS::Region}-bootstrap-TravisUserArn'}
                 - !GetAtt ServiceUser.Arn
             Action:
               - "sts:AssumeRole"
