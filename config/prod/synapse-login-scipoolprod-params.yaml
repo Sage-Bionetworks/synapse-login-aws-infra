@@ -26,11 +26,13 @@ sceptre_user_data:
     #  273957 Sage Bionetworks
     # 3409010 scipoolprod-internal
     # 3409011 scipoolprod-external
+    # 3469335 Schwannomatosis Open Research Collaborative Service Catalog Users
     - Name: TeamToRoleArnMap
       Value: >-
         '[
           {"teamId":"3407239","roleArn":"arn:aws:iam::237179673806:role/ServiceCatalogEndusers"},
           {"teamId":"273957","roleArn":"arn:aws:iam::237179673806:role/ServiceCatalogEndusers"},
           {"teamId":"3409010","roleArn":"arn:aws:iam::237179673806:role/ServiceCatalogEndusers"},
-          {"teamId":"3409011","roleArn":"arn:aws:iam::237179673806:role/ServiceCatalogExternalEndusers"}
+          {"teamId":"3409011","roleArn":"arn:aws:iam::237179673806:role/ServiceCatalogExternalEndusers"},
+          {"teamId":"3469335","roleArn":"arn:aws:iam::237179673806:role/ServiceCatalogExternalEndusers"}
         ]'
