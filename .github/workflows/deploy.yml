@@ -1,8 +1,10 @@
-name: deploy
+name: deploy-synapse-loging-app
 
 on:
-  [pull_request, push]:
+  push:
     branches: [ 'develop', 'prod' ]
+  pull_request:
+    branches: "*"
 
 concurrency:
   group: ${{ github.workflow }}
@@ -20,7 +22,7 @@ jobs:
   deploy-develop:
     name: deploy-develop
     runs-on: ubuntu-latest
-    if: {{ github.event_name == 'push' && github.ref_name == 'develop' }}
+    if: github.event_name == 'push' && github.ref_name == 'develop'
     needs: [ "pre-commit" ]
     permissions:
       id-token: write
@@ -29,10 +31,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Assume AWS Role
-        uses: aws-actions/configure-aws-credentials@v1
+        uses: aws-actions/configure-aws-credentials@v2
         with:
           aws-region: us-east-1
-          role-to-assume: arn:aws:iam::465877038949:role/sagebase-github-oidc-scip-ProviderRolesynapselogin-N5UM6GWSWVWN
+          role-to-assume: arn:aws:iam::465877038949:role/sagebase-github-oidc-scipool-dev-synapse-login-aws-infra
           role-session-name: GitHubActions-${{ github.repository_owner }}-${{ github.event.repository.name }}-${{ github.run_id }}
           role-duration-seconds: 900
       - name: Install dependencies
@@ -49,7 +51,7 @@ jobs:
   deploy-prod:
     name: deploy-prod
     runs-on: ubuntu-latest
-    if: {{ github.event_name == 'push' && github.ref_name == 'prod' }}
+    if: github.event_name == 'push' && github.ref_name == 'prod'
     needs: [ "pre-commit" ]
     permissions:
       id-token: write
@@ -58,7 +60,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Assume AWS Role
-        uses: aws-actions/configure-aws-credentials@v1
+        uses: aws-actions/configure-aws-credentials@v2
         with:
           aws-region: us-east-1
           role-to-assume: arn:aws:iam::237179673806:role/sagebase-github-oidc-scip-ProviderRolesynapselogin-16RNR2FUO69IS
@@ -78,7 +80,7 @@ jobs:
   deploy-bmgfki:
     name: deploy-bmgfki
     runs-on: ubuntu-latest
-    if: {{ github.event_name == 'push' && github.ref_name == 'prod' }}
+    if: github.event_name == 'push' && github.ref_name == 'prod'
     needs: [ "pre-commit" ]
     permissions:
       id-token: write
@@ -87,10 +89,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Assume AWS Role
-        uses: aws-actions/configure-aws-credentials@v1
+        uses: aws-actions/configure-aws-credentials@v2
         with:
           aws-region: us-east-1
-          role-to-assume: arn:aws:iam::464102568320:role/sagebase-github-oidc-bmgf-ProviderRolesynapselogin-2M555XCM7SX4
+          role-to-assume: arn:aws:iam::464102568320:role/sagebase-github-oidc-bmgfki-synapse-login-aws-infra
           role-session-name: GitHubActions-${{ github.repository_owner }}-${{ github.event.repository.name }}-${{ github.run_id }}
           role-duration-seconds: 900
       - name: Install dependencies
@@ -108,7 +110,7 @@ jobs:
   # deploy-strides:
   #   name: deploy-strides
   #   runs-on: ubuntu-latest
-  #   if: {{ github.event_name == 'push' && github.ref_name == 'prod'}}
+  #   if: github.event_name == 'push' && github.ref_name == 'prod'
   #   needs: [ "pre-commit" ]
   #   permissions:
   #     id-token: write
@@ -117,7 +119,7 @@ jobs:
   #   - name: Checkout
   #     uses: actions/checkout@v3
   #   - name: Assume AWS Role
-  #     uses: aws-actions/configure-aws-credentials@v1
+  #     uses: aws-actions/configure-aws-credentials@v2
   #     with:
   #       aws-region: us-east-1
   #       role-to-assume:
