@@ -63,7 +63,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v2
         with:
           aws-region: us-east-1
-          role-to-assume: arn:aws:iam::237179673806:role/sagebase-github-oidc-scip-ProviderRolesynapselogin-16RNR2FUO69IS
+          role-to-assume: arn:aws:iam::237179673806:role/sagebase-github-oidc-scipool-prod-synapse-login-aws-infra
           role-session-name: GitHubActions-${{ github.repository_owner }}-${{ github.event.repository.name }}-${{ github.run_id }}
           role-duration-seconds: 900
       - name: Install dependencies
@@ -106,33 +106,32 @@ jobs:
           sceptre_plugins: >-
             sceptre-ssm-resolver==1.1.4
           sceptre_subcommand: 'launch -y bmgfki'
-  # Need STRIDES OIDC setup first
-  # deploy-strides:
-  #   name: deploy-strides
-  #   runs-on: ubuntu-latest
-  #   if: github.event_name == 'push' && github.ref_name == 'prod'
-  #   needs: [ "pre-commit" ]
-  #   permissions:
-  #     id-token: write
-  #     contents: read
-  #   steps:
-  #   - name: Checkout
-  #     uses: actions/checkout@v3
-  #   - name: Assume AWS Role
-  #     uses: aws-actions/configure-aws-credentials@v2
-  #     with:
-  #       aws-region: us-east-1
-  #       role-to-assume:
-  #       role-session-name: GitHubActions-${{ github.repository_owner }}-${{ github.event.repository.name }}-${{ github.run_id }}
-  #       role-duration-seconds: 900
-  #   - name: Install dependencies
-  #     run: |
-  #       python -m pip install --upgrade pip
-  #       pip install sceptre sceptre-ssm-resolver
-  #   - name: 'Sceptre launch'
-  #       uses: Sceptre/github-ci-action@master
-  #       with:
-  #         sceptre_version: '4.0.2'
-  #         sceptre_plugins: >-
-  #           sceptre-ssm-resolver==1.1.4
-  #         sceptre_subcommand: 'launch -y strides'
+  deploy-strides:
+    name: deploy-strides
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && github.ref_name == 'prod'
+    needs: [ "pre-commit" ]
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: Assume AWS Role
+      uses: aws-actions/configure-aws-credentials@v2
+      with:
+        aws-region: us-east-1
+        role-to-assume: arn:aws:iam::423819316185:role/github-oidc-sage-bionetworks
+        role-session-name: GitHubActions-${{ github.repository_owner }}-${{ github.event.repository.name }}-${{ github.run_id }}
+        role-duration-seconds: 900
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install sceptre sceptre-ssm-resolver
+    - name: 'Sceptre launch'
+      uses: Sceptre/github-ci-action@master
+      with:
+        sceptre_version: '4.0.2'
+        sceptre_plugins: >-
+          sceptre-ssm-resolver==1.1.4
+        sceptre_subcommand: 'launch -y strides'
