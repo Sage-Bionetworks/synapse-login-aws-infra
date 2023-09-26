@@ -21,8 +21,8 @@ List of login apps using this AWS infrastructure.
 * https://github.com/Sage-Bionetworks/synapse-login-scipool
 
 ## Continuous Integration
-We have configured Travis to deploy CF template updates.  Travis deploys using
-[sceptre](https://sceptre.cloudreach.com/latest/about.html)
+We have configured Github action to deploy CF template updates. GH actions
+deploys using [sceptre](https://sceptre.cloudreach.com/latest/about.html)
 
 # Contributions
 Contributions are welcome
