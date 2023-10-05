@@ -56,6 +56,12 @@ Parameters:
       - t3.large
       - t3.xlarge
       - t3.2xlarge
+  RootVolumeSize:
+    Type: Number
+    Description: Volume size for Elastic Beanstalk Instances
+    Default: "60"
+    MinValue: "30"
+    MaxValue: "200"
   EC2KeyName:
     Description: An existing EC2 keypair to allow secure access to instances
     Type: String
@@ -143,6 +149,9 @@ Resources:
         - Namespace: 'aws:autoscaling:launchconfiguration'
           OptionName: InstanceType
           Value: !Ref EC2InstanceType
+        - Namespace: 'aws:autoscaling:launchconfiguration'
+          OptionName: RootVolumeSize
+          Value: !Ref RootVolumeSize
         - Namespace: 'aws:autoscaling:launchconfiguration'
           OptionName: SecurityGroups
           Value: !Ref InstanceSecurityGroup
